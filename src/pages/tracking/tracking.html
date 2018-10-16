@@ -1,0 +1,78 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Tracking - {{dayOfWeek}}</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <!--<ion-card-item>-->
+      <!--<ion-avatar item-start>-->
+        <!--<ion-icon name="happy"></ion-icon>-->
+      <!--</ion-avatar>-->
+      <!--<h2>Subjective Measurables</h2>-->
+      <!--<p>What you aim to influence</p>-->
+    <!--</ion-item>-->
+    <!--<hr>-->
+
+    <ion-card-header>
+      Subjective Measurables
+    </ion-card-header>
+
+
+    <ion-list>
+      <ion-item-sliding *ngFor="let listItem of subjectives">
+        <button ion-item (click)="openItem(listItem)">
+          <ion-avatar item-start>
+            <ion-icon name="checkbox"></ion-icon>
+          </ion-avatar>
+          <h2>{{listItem.name}}</h2>
+        </button>
+
+        <ion-item-options>
+          <button ion-button color="danger" (click)="deleteItem(listItem)">
+            Edit
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <!--<ion-item>-->
+      <!--<ion-avatar item-start>-->
+        <!--<ion-icon name="water"></ion-icon>-->
+      <!--</ion-avatar>-->
+      <!--<h2>Intake Measurables</h2>-->
+      <!--<p>What you consumed or performed</p>-->
+    <!--</ion-item>-->
+
+    <ion-card-header>
+      Intake Measurables
+    </ion-card-header>
+
+    <ion-list>
+      <ion-item-sliding *ngFor="let listItem of intake">
+        <button ion-item (click)="openItem(listItem)">
+          <ion-avatar item-start>
+            <ion-icon name="checkbox"></ion-icon>
+          </ion-avatar>
+          <h2>{{listItem.name}}</h2>
+        </button>
+
+        <ion-item-options>
+          <button ion-button color="danger" (click)="deleteItem(listItem)">
+            Edit
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-card>
+
+</ion-content>
