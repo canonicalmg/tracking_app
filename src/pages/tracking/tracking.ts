@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
+import {Item} from "../../models/item";
+import {Subjective} from "../../models/subjective";
 
 @IonicPage()
 @Component({
@@ -8,7 +10,8 @@ import { IonicPage, NavController } from 'ionic-angular';
 })
 export class TrackingPage {
   cardItems: any[];
-  subjectives: any[];
+  subjectives: Subjective;
+  active_subjectives: any[];
   intake: any[];
   dayOfWeek = this.getWeekday();
 
@@ -40,31 +43,36 @@ export class TrackingPage {
       }
     ];
 
-    this.subjectives = [
-      {
-        name: "Mood",
-        profilePic: "assets/img/speakers/bear.jpg",
-        about: "Burt is a Bear.",
-      },
-      {
-        name: "Sleep",
-        profilePic: "assets/img/speakers/bear.jpg",
-        about: "Burt is a Bear.",
-        note: "sdfsdfsdf"
-      },
-      {
-        name: "Motivation",
-        profilePic: "assets/img/speakers/bear.jpg",
-        about: "Burt is a Bear.",
-        note: "sdfsdfsdf"
-      },
-      {
-        name: "Energy",
-        profilePic: "assets/img/speakers/bear.jpg",
-        about: "Burt is a Bear.",
-        note: "sdfsdfsdf"
-      },
-    ]
+
+    this.subjectives = new Subjective({
+      items: [
+        {
+          name: "Mood",
+          profilePic: "assets/img/speakers/bear.jpg",
+          about: "Burt is a Bear.",
+          active: true
+        },
+        {
+          name: "Sleep",
+          profilePic: "assets/img/speakers/bear.jpg",
+          about: "Burt is a Bear.",
+          active: true
+        },
+        {
+          name: "Motivation",
+          profilePic: "assets/img/speakers/bear.jpg",
+          about: "Burt is a Bear.",
+          active: true
+        },
+        {
+          name: "Energy",
+          profilePic: "assets/img/speakers/bear.jpg",
+          about: "Burt is a Bear.",
+          active: true
+        }
+      ]
+    });
+
     this.intake = [
       {
         name: "Supplements",
@@ -97,6 +105,19 @@ export class TrackingPage {
       },
     ]
 
+  }
+
+  editMeasurementsCard() {
+
+  }
+
+  /**
+   * Navigate to the detail page for this item.
+   */
+  openMeasurementEditModal(subjective: Subjective) {
+    this.navCtrl.push('SubjectiveMeasures', {
+      subjective: subjective
+    });
   }
 
   getWeekday() {

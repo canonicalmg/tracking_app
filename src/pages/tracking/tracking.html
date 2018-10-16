@@ -12,23 +12,16 @@
 <ion-content>
 
   <ion-card>
-    <!--<ion-card-item>-->
-      <!--<ion-avatar item-start>-->
-        <!--<ion-icon name="happy"></ion-icon>-->
-      <!--</ion-avatar>-->
-      <!--<h2>Subjective Measurements</h2>-->
-      <!--<p>What you aim to influence</p>-->
-    <!--</ion-item>-->
-    <!--<hr>-->
 
     <ion-card-header>
       Subjective Measurements
+      <ion-icon float-right name="menu" large (click)="openMeasurementEditModal(subjectives)"></ion-icon>
     </ion-card-header>
 
-
     <ion-list>
-      <ion-item-sliding *ngFor="let listItem of subjectives">
-        <button ion-item (click)="openItem(listItem)">
+      <ion-item-sliding *ngFor="let listItem of subjectives.items">
+
+        <button ion-item (click)="openItem(listItem)" *ngIf="listItem.active == true">
           <ion-avatar item-start>
             <ion-icon name="checkbox"></ion-icon>
           </ion-avatar>

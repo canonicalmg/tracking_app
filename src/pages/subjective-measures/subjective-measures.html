@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Subjective Measurements</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+
+    <ion-item *ngFor="let listItem of subjectives.items">
+      <ion-label>{{listItem.name}}</ion-label>
+      <ion-toggle [(ngModel)]="listItem.active"></ion-toggle>
+    </ion-item>
+  </ion-list>
+</ion-content>

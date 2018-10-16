@@ -11,6 +11,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { ChartsModule } from 'ng2-charts';
 
 import { Items } from '../mocks/providers/items';
+import { Subjectives } from '../mocks/providers/subjectives';
 import { Settings, User, Api } from '../providers';
 import { MyApp } from './app.component';
 
@@ -60,6 +61,7 @@ export function provideSettings(storage: Storage) {
   providers: [
     Api,
     Items,
+    Subjectives,
     User,
     Camera,
     SplashScreen,
