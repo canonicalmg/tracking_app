@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonicPageModule } from 'ionic-angular';
-import { SQLite } from '@ionic-native/sqlite';
+import { ChartsModule } from 'ng2-charts';
 
-import { TrackingPage } from './tracking';
+import { SubjectiveInput } from './subjective-input';
 
 @NgModule({
   declarations: [
-    TrackingPage,
-  ],
-  providers: [
-    SQLite
+    SubjectiveInput,
   ],
   imports: [
-    IonicPageModule.forChild(TrackingPage),
+    ChartsModule,
+    IonicPageModule.forChild(SubjectiveInput),
     TranslateModule.forChild()
   ],
   exports: [
-    TrackingPage
+    SubjectiveInput
   ]
 })
-export class TrackingPageModule { }
+export class ItemDetailPageModule { }

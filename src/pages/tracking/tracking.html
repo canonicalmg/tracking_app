@@ -19,13 +19,14 @@
     </ion-card-header>
 
     <ion-list>
-      <ion-item-sliding *ngFor="let listItem of subjectives.items">
+      <ion-item-sliding justify-content-center align-items-center *ngFor="let listItem of subjectives">
 
-        <button ion-item (click)="openItem(listItem)" *ngIf="listItem.active == true">
-          <ion-avatar item-start>
-            <ion-icon name="checkbox"></ion-icon>
-          </ion-avatar>
-          <h2>{{listItem.name}}</h2>
+        <button ion-item (click)="openItem(listItem)" *ngIf="listItem.active == 1">
+          <ion-checkbox color="primary" disabled="true" *ngIf="listItem.value == null">
+          </ion-checkbox>
+          <ion-label style="opacity:1.0;">{{listItem.name}}{{displayValue(listItem)}}</ion-label>
+          <ion-checkbox color="primary" disabled="true" checked="true" *ngIf="listItem.value != null">
+          </ion-checkbox>
         </button>
 
         <ion-item-options>

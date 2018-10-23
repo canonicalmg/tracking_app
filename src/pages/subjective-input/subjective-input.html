@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{subjective_input.name}} - {{dayOfWeek}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>{{subjective_input.value}} </ion-label>
+    <ion-range min="0" max="10" step="1" snaps="true" color="secondary" [(ngModel)]="subjective_input.value" (ionChange)="updateGraph()"></ion-range>
+  </ion-item>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <canvas baseChart height="400"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
