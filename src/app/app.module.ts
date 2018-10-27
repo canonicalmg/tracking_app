@@ -9,7 +9,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { ChartsModule } from 'ng2-charts';
-import { SQLite } from '@ionic-native/sqlite';
+import { NativeStorage } from '@ionic-native/native-storage';
 import { Toast } from '@ionic-native/toast';
 
 import { Items } from '../mocks/providers/items';
@@ -61,7 +61,7 @@ export function provideSettings(storage: Storage) {
     MyApp
   ],
   providers: [
-    SQLite,
+    NativeStorage,
     Toast,
     Api,
     Items,

@@ -15,4 +15,10 @@ export class SubjectiveMeasures {
     this.subjectives = navParams.get('subjective') || subjectives.defaultSubjective;
   }
 
+  addNew(subjectives) {
+    this.navCtrl.push('AddNewSubjectivePage', {
+      subjectives: subjectives
+    });
+  }
+
 }
