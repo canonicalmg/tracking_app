@@ -15,16 +15,16 @@
 
     <ion-card-header>
       Subjective Measurements
-      <ion-icon float-right name="menu" large (click)="openMeasurementEditModal(subjectives)"></ion-icon>
+      <ion-icon float-right name="menu" large (click)="openSubjectiveMeasurementEditModal(subjectives)"></ion-icon>
     </ion-card-header>
 
     <ion-list>
       <ion-item-sliding justify-content-center align-items-center *ngFor="let listItem of subjectives">
 
-        <button ion-item (click)="openItem(listItem)" *ngIf="listItem.active == 1">
+        <button ion-item (click)="openSubjectiveItem(listItem)" *ngIf="listItem.active == 1">
           <ion-checkbox color="primary" disabled="true" *ngIf="listItem.value == null">
           </ion-checkbox>
-          <ion-label style="opacity:1.0;">{{listItem.name}}{{displayValue(listItem)}}</ion-label>
+          <ion-label style="opacity:1.0;">{{listItem.name}}{{displaySubjectiveValue(listItem)}}</ion-label>
           <ion-checkbox color="primary" disabled="true" checked="true" *ngIf="listItem.value != null">
           </ion-checkbox>
         </button>
@@ -39,25 +39,18 @@
   </ion-card>
 
   <ion-card>
-    <!--<ion-item>-->
-      <!--<ion-avatar item-start>-->
-        <!--<ion-icon name="water"></ion-icon>-->
-      <!--</ion-avatar>-->
-      <!--<h2>Intake Measurements</h2>-->
-      <!--<p>What you consumed or performed</p>-->
-    <!--</ion-item>-->
 
     <ion-card-header>
       Intake Measurements
+      <ion-icon float-right name="menu" large (click)="openIntakeMeasurementEditModal(intake)"></ion-icon>
     </ion-card-header>
 
     <ion-list>
-      <ion-item-sliding *ngFor="let listItem of intake">
-        <button ion-item (click)="openItem(listItem)">
-          <ion-avatar item-start>
-            <ion-icon name="checkbox"></ion-icon>
-          </ion-avatar>
-          <h2>{{listItem.name}}</h2>
+      <ion-item-sliding justify-content-center align-items-center *ngFor="let listItem of intake">
+
+        <button ion-item (click)="openIntakeItem(listItem)" *ngIf="listItem.active == 1">
+          <ion-label style="opacity:1.0;">{{listItem.name}}</ion-label>
+          <ion-checkbox color="primary" disabled="true" [(ngModel)]="listItem.value"></ion-checkbox>
         </button>
 
         <ion-item-options>

@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{intake_input.name}} - {{dayOfWeek}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Intake consumed </ion-label>
+    <ion-toggle [(ngModel)]="intake_input.value"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Notes (optional) </ion-label>
+    <ion-textarea [(ngModel)]="intake_input.notes"></ion-textarea>
+  </ion-item>
+
+</ion-content>

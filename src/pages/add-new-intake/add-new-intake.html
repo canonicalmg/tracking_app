@@ -1,0 +1,37 @@
+<!--
+  Generated template for the AddNewSubjectivePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add New Intake Measurement</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label >Name</ion-label>
+      <ion-input [(ngModel)]="name" type="text"></ion-input>
+    </ion-item>
+
+    <!-- todo: add reminder options here -->
+
+  </ion-list>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <button ion-button full icon-start (click)="save()">
+          Save
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

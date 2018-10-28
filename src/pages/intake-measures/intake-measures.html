@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Intake Measurements</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-item>
+    <ion-label>Name</ion-label>
+    <ion-label text-center>Tracking</ion-label>
+  </ion-item>
+  <ion-list>
+    <ion-item *ngFor="let listItem of intake">
+      <ion-label>{{listItem.name}}</ion-label>
+      <ion-toggle [(ngModel)]="listItem.active"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <button ion-button full icon-start (click)="addNew(intake)">
+          <ion-icon name='add'></ion-icon>
+          Add New
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

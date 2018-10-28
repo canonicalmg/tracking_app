@@ -154,7 +154,8 @@ export class TrackingPage {
                   intake.push({
                     name: data[key][i]['name'],
                     active: 1,
-                    value: null
+                    value: false,
+                    notes: ""
                   })
                 }
               }
@@ -223,7 +224,7 @@ export class TrackingPage {
     }
   }
 
-  displayValue(listItem) {
+  displaySubjectiveValue(listItem) {
     if(listItem.value){
       return ": " + listItem.value + "/10";
     }
@@ -232,18 +233,39 @@ export class TrackingPage {
     }
   }
 
-  openItem(subjectiveItem) {
+  displayIntakeValue(listItem) {
+    if(listItem.value){
+      return ": " + listItem.value + "/10";
+    }
+    else{
+      return ""
+    }
+  }
+
+  openSubjectiveItem(subjectiveItem) {
     this.navCtrl.push('SubjectiveInput', {
       subjectiveInput: subjectiveItem
+    });
+  }
+
+  openIntakeItem(intakeItem) {
+    this.navCtrl.push('IntakeInputPage', {
+      intakeInput: intakeItem
     });
   }
 
   /**
    * Navigate to the detail page for this item.
    */
-  openMeasurementEditModal(subjective) {
+  openSubjectiveMeasurementEditModal(subjective) {
     this.navCtrl.push('SubjectiveMeasures', {
       subjective: subjective
+    });
+  }
+f
+  openIntakeMeasurementEditModal(intake) {
+    this.navCtrl.push('IntakeMeasuresPage', {
+      intake: intake
     });
   }
 
